@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
+import { useEffect, useState } from "react";
+import MapPicker from "@/components/MapPicker";
 import {
   getDailyPuzzle,
   MAX_GUESSES,
@@ -24,29 +23,10 @@ import {
   shareResult,
 } from "@/lib/geo";
 
-const MAP_STYLE: maplibregl.StyleSpecification = {
-  version: 8,
-  sources: {
-    osm: {
-      type: "raster",
-      tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-      tileSize: 256,
-      attribution: "© OpenStreetMap contributors",
-    },
-  },
-  layers: [{ id: "osm", type: "raster", source: "osm" }],
-};
-
 type Status = "playing" | "won" | "lost";
 type Guess = { lat: number; lng: number; distanceKm: number; bearing: number };
 
 export default function Game() {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<maplibregl.Map | null>(null);
-  const guessMarker = useRef<maplibregl.Marker | null>(null);
-  const answerMarker = useRef<maplibregl.Marker | null>(null);
-  const statusRef = useRef<Status>("playing");
-
   const [day, setDay] = useState<DailyPuzzle | null>(null);
   const [frameIndex, setFrameIndex] = useState(0); // advanced only by Reveal more
   const [pin, setPin] = useState<{ lat: number; lng: number } | null>(null);
@@ -86,10 +66,6 @@ export default function Game() {
     }
   }
 
-  useEffect(() => {
-    statusRef.current = status;
-  }, [status]);
-
   const puzzle = day?.puzzle;
   const maxReveals = puzzle ? puzzle.frames.length - 1 : 0;
   const revealsUsed = frameIndex;
@@ -104,49 +80,6 @@ export default function Game() {
     if (!day) return;
     saveGame(day.dateKey, { guesses, frameIndex, status, score });
   }, [day, guesses, frameIndex, status, score]);
-
-  // init map once the puzzle is resolved (so the container exists)
-  useEffect(() => {
-    if (!day || mapRef.current || !mapContainer.current) return;
-    const map = new maplibregl.Map({
-      container: mapContainer.current,
-      style: MAP_STYLE,
-      center: [0, 20],
-      zoom: 0.8,
-      attributionControl: { compact: true },
-    });
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
-    map.on("click", (e) => {
-      if (statusRef.current !== "playing") return;
-      setPin({ lat: e.lngLat.lat, lng: e.lngLat.lng });
-    });
-    mapRef.current = map;
-    return () => {
-      map.remove();
-      mapRef.current = null;
-    };
-  }, [day]);
-
-  // reflect the dropped pin
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !pin) return;
-    if (!guessMarker.current) {
-      guessMarker.current = new maplibregl.Marker({ color: "#2563eb" });
-    }
-    guessMarker.current.setLngLat([pin.lng, pin.lat]).addTo(map);
-  }, [pin]);
-
-  // reveal the answer when the game is over (covers both live and restored)
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !puzzle || !over) return;
-    if (!answerMarker.current) {
-      answerMarker.current = new maplibregl.Marker({ color: "#16a34a" });
-    }
-    answerMarker.current.setLngLat([puzzle.lon, puzzle.lat]).addTo(map);
-    map.flyTo({ center: [puzzle.lon, puzzle.lat], zoom: 3.5, duration: 1000 });
-  }, [over, puzzle]);
 
   // tick a countdown to the next puzzle once the game is over
   useEffect(() => {
@@ -289,10 +222,10 @@ export default function Game() {
             </span>
           </div>
 
-          <div
-            ref={mapContainer}
-            className="h-64 w-full overflow-hidden rounded-xl ring-1 ring-border md:h-72"
-            aria-label="World map. Click to place your guess."
+          <MapPicker
+            disabled={over}
+            answer={over ? { lat: puzzle.lat, lon: puzzle.lon } : undefined}
+            onPick={setPin}
           />
 
           {guesses.length > 0 && (

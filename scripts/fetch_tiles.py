@@ -23,6 +23,7 @@ import io
 import math
 import os
 import sys
+import time
 
 import requests
 from PIL import Image
@@ -52,11 +53,25 @@ def lonlat_to_pixel(lon: float, lat: float, z: int) -> tuple[float, float]:
     return x, y
 
 
-def fetch_tile(z: int, x: int, y: int) -> Image.Image:
+def fetch_tile(z: int, x: int, y: int, retries: int = 5) -> Image.Image:
+    """Fetch one tile, retrying transient network/server errors with backoff.
+
+    The EOX endpoint occasionally resets the connection or rate-limits under a
+    rapid sequential load, so a single failure must not abort the whole run.
+    """
     url = TILE_URL.format(z=z, x=x, y=y)
-    r = requests.get(url, headers=HEADERS, timeout=30)
-    r.raise_for_status()
-    return Image.open(io.BytesIO(r.content)).convert("RGB")
+    for attempt in range(retries):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            img = Image.open(io.BytesIO(r.content)).convert("RGB")
+            time.sleep(0.05)  # be polite — avoid tripping rate limits
+            return img
+        except (requests.RequestException, OSError) as e:
+            if attempt == retries - 1:
+                raise
+            time.sleep(1.5 * (attempt + 1))  # 1.5s, 3s, 4.5s, 6s
+    raise RuntimeError("unreachable")
 
 
 def fetch_frame(lon: float, lat: float, z: int) -> Image.Image:

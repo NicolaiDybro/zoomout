@@ -22,6 +22,7 @@ def main() -> None:
     with open(pool_path, encoding="utf-8") as f:
         locations = json.load(f)
 
+    failed: list[str] = []
     for loc in locations:
         slug = loc["slug"]
         last_frame = os.path.join(
@@ -30,9 +31,17 @@ def main() -> None:
         if os.path.exists(last_frame) and not force:
             print(f"Skipping {slug} (already generated)")
             continue
-        generate(loc["lat"], loc["lon"], slug)
+        try:
+            generate(loc["lat"], loc["lon"], slug)
+        except Exception as e:  # keep going; re-run picks up the failures
+            print(f"  FAILED {slug}: {e}")
+            failed.append(slug)
 
-    print(f"Done. Generated frames for {len(locations)} locations.")
+    done = len(locations) - len(failed)
+    print(f"\nDone. {done}/{len(locations)} locations complete.")
+    if failed:
+        print(f"Failed ({len(failed)}): {', '.join(failed)}")
+        print("Re-run the script to retry just the missing ones.")
 
 
 if __name__ == "__main__":
