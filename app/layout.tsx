@@ -17,10 +17,11 @@ const description =
   "Where on Earth is this? A daily satellite guessing game. Read the clue, drop a pin, and reveal more only if you need it. New place every day.";
 
 export const metadata: Metadata = {
-  // Change to your real domain (or set NEXT_PUBLIC_SITE_URL) so share previews
-  // resolve absolute image URLs.
+  // Used to resolve absolute share-preview image URLs. Defaults to the live
+  // Vercel domain; set NEXT_PUBLIC_SITE_URL to override once a custom domain is
+  // added.
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://zoomout.game",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://zoomout-mocha.vercel.app",
   ),
   title: "ZoomOut — the daily satellite puzzle",
   description,
