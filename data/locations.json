@@ -1,0 +1,362 @@
+[
+  {
+    "slug": "mexico-city",
+    "name": "Mexico City, Mexico",
+    "lat": 19.4285,
+    "lon": -99.1277
+  },
+  {
+    "slug": "n-djamena",
+    "name": "N'Djamena, Chad",
+    "lat": 12.1067,
+    "lon": 15.0444
+  },
+  {
+    "slug": "perth",
+    "name": "Perth, Australia",
+    "lat": -31.9522,
+    "lon": 115.8614
+  },
+  {
+    "slug": "sao-paulo",
+    "name": "São Paulo, Brazil",
+    "lat": -23.5475,
+    "lon": -46.6361
+  },
+  {
+    "slug": "mogadishu",
+    "name": "Mogadishu, Somalia",
+    "lat": 2.0371,
+    "lon": 45.3438
+  },
+  {
+    "slug": "lima",
+    "name": "Lima, Peru",
+    "lat": -12.0432,
+    "lon": -77.0282
+  },
+  {
+    "slug": "lahore",
+    "name": "Lahore, Pakistan",
+    "lat": 31.558,
+    "lon": 74.3507
+  },
+  {
+    "slug": "mumbai",
+    "name": "Mumbai, India",
+    "lat": 19.0728,
+    "lon": 72.8826
+  },
+  {
+    "slug": "syktyvkar",
+    "name": "Syktyvkar, Russia",
+    "lat": 61.6852,
+    "lon": 50.8082
+  },
+  {
+    "slug": "cape-town",
+    "name": "Cape Town, South Africa",
+    "lat": -33.9258,
+    "lon": 18.4232
+  },
+  {
+    "slug": "yekaterinburg",
+    "name": "Yekaterinburg, Russia",
+    "lat": 56.8519,
+    "lon": 60.6122
+  },
+  {
+    "slug": "tokyo",
+    "name": "Tokyo, Japan",
+    "lat": 35.6895,
+    "lon": 139.6917
+  },
+  {
+    "slug": "la-paz",
+    "name": "La Paz, Bolivia",
+    "lat": -16.5,
+    "lon": -68.15
+  },
+  {
+    "slug": "st-john-s",
+    "name": "St. John's, Canada",
+    "lat": 47.5649,
+    "lon": -52.7093
+  },
+  {
+    "slug": "jakarta",
+    "name": "Jakarta, Indonesia",
+    "lat": -6.2146,
+    "lon": 106.8451
+  },
+  {
+    "slug": "singapore",
+    "name": "Singapore, Singapore",
+    "lat": 1.2897,
+    "lon": 103.8501
+  },
+  {
+    "slug": "ulan-bator",
+    "name": "Ulan Bator, Mongolia",
+    "lat": 47.9077,
+    "lon": 106.8832
+  },
+  {
+    "slug": "algiers",
+    "name": "Algiers, Algeria",
+    "lat": 36.7323,
+    "lon": 3.0875
+  },
+  {
+    "slug": "moscow",
+    "name": "Moscow, Russia",
+    "lat": 55.7522,
+    "lon": 37.6156
+  },
+  {
+    "slug": "manaus",
+    "name": "Manaus, Brazil",
+    "lat": -3.1019,
+    "lon": -60.025
+  },
+  {
+    "slug": "jayapura",
+    "name": "Jayapura, Indonesia",
+    "lat": -2.5337,
+    "lon": 140.7181
+  },
+  {
+    "slug": "laayoune",
+    "name": "Laayoune, Western Sahara",
+    "lat": 27.1418,
+    "lon": -13.188
+  },
+  {
+    "slug": "bengaluru",
+    "name": "Bengaluru, India",
+    "lat": 12.9719,
+    "lon": 77.5937
+  },
+  {
+    "slug": "salvador",
+    "name": "Salvador, Brazil",
+    "lat": -12.9756,
+    "lon": -38.491
+  },
+  {
+    "slug": "jeddah",
+    "name": "Jeddah, Saudi Arabia",
+    "lat": 21.4901,
+    "lon": 39.1862
+  },
+  {
+    "slug": "buenos-aires",
+    "name": "Buenos Aires, Argentina",
+    "lat": -34.6131,
+    "lon": -58.3772
+  },
+  {
+    "slug": "tehran",
+    "name": "Tehran, Iran",
+    "lat": 35.6944,
+    "lon": 51.4215
+  },
+  {
+    "slug": "london",
+    "name": "London, United Kingdom",
+    "lat": 51.5085,
+    "lon": -0.1257
+  },
+  {
+    "slug": "havana",
+    "name": "Havana, Cuba",
+    "lat": 23.133,
+    "lon": -82.383
+  },
+  {
+    "slug": "antsiranana",
+    "name": "Antsiranana, Madagascar",
+    "lat": -12.3173,
+    "lon": 49.2919
+  },
+  {
+    "slug": "calgary",
+    "name": "Calgary, Canada",
+    "lat": 51.0501,
+    "lon": -114.0853
+  },
+  {
+    "slug": "chengdu",
+    "name": "Chengdu, China",
+    "lat": 30.6667,
+    "lon": 104.0667
+  },
+  {
+    "slug": "durban",
+    "name": "Durban, South Africa",
+    "lat": -29.8579,
+    "lon": 31.0292
+  },
+  {
+    "slug": "khabarovsk",
+    "name": "Khabarovsk, Russia",
+    "lat": 48.4803,
+    "lon": 135.0882
+  },
+  {
+    "slug": "shanghai",
+    "name": "Shanghai, China",
+    "lat": 31.2222,
+    "lon": 121.4581
+  },
+  {
+    "slug": "helsinki",
+    "name": "Helsinki, Finland",
+    "lat": 60.1695,
+    "lon": 24.9354
+  },
+  {
+    "slug": "urumqi",
+    "name": "Ürümqi, China",
+    "lat": 43.801,
+    "lon": 87.6005
+  },
+  {
+    "slug": "taipei",
+    "name": "Taipei, Taiwan",
+    "lat": 25.0531,
+    "lon": 121.5264
+  },
+  {
+    "slug": "shenzhen",
+    "name": "Shenzhen, China",
+    "lat": 22.5455,
+    "lon": 114.0683
+  },
+  {
+    "slug": "anchorage",
+    "name": "Anchorage, United States",
+    "lat": 61.2181,
+    "lon": -149.9003
+  },
+  {
+    "slug": "santo-domingo",
+    "name": "Santo Domingo, Dominican Republic",
+    "lat": 18.4719,
+    "lon": -69.8923
+  },
+  {
+    "slug": "dunedin",
+    "name": "Dunedin, New Zealand",
+    "lat": -45.8742,
+    "lon": 170.5036
+  },
+  {
+    "slug": "comodoro-rivadavia",
+    "name": "Comodoro Rivadavia, Argentina",
+    "lat": -45.8626,
+    "lon": -67.494
+  },
+  {
+    "slug": "toronto",
+    "name": "Toronto, Canada",
+    "lat": 43.7064,
+    "lon": -79.3986
+  },
+  {
+    "slug": "delhi",
+    "name": "Delhi, India",
+    "lat": 28.6519,
+    "lon": 77.2315
+  },
+  {
+    "slug": "ottawa",
+    "name": "Ottawa, Canada",
+    "lat": 45.4112,
+    "lon": -75.6981
+  },
+  {
+    "slug": "winnipeg",
+    "name": "Winnipeg, Canada",
+    "lat": 49.8844,
+    "lon": -97.147
+  },
+  {
+    "slug": "townsville",
+    "name": "Townsville, Australia",
+    "lat": -19.2664,
+    "lon": 146.8057
+  },
+  {
+    "slug": "kazan",
+    "name": "Kazan, Russia",
+    "lat": 55.7887,
+    "lon": 49.1221
+  },
+  {
+    "slug": "luanda",
+    "name": "Luanda, Angola",
+    "lat": -8.8368,
+    "lon": 13.2343
+  },
+  {
+    "slug": "abidjan",
+    "name": "Abidjan, Ivory Coast",
+    "lat": 5.3544,
+    "lon": -4.0017
+  },
+  {
+    "slug": "mossamedes",
+    "name": "Mossamedes, Angola",
+    "lat": -15.1961,
+    "lon": 12.1522
+  },
+  {
+    "slug": "seattle",
+    "name": "Seattle, United States",
+    "lat": 47.6062,
+    "lon": -122.3321
+  },
+  {
+    "slug": "los-angeles",
+    "name": "Los Angeles, United States",
+    "lat": 34.0522,
+    "lon": -118.2437
+  },
+  {
+    "slug": "novosibirsk",
+    "name": "Novosibirsk, Russia",
+    "lat": 55.0344,
+    "lon": 82.9434
+  },
+  {
+    "slug": "istanbul",
+    "name": "Istanbul, Turkey",
+    "lat": 41.0138,
+    "lon": 28.9497
+  },
+  {
+    "slug": "harbin",
+    "name": "Harbin, China",
+    "lat": 45.75,
+    "lon": 126.65
+  },
+  {
+    "slug": "kupang",
+    "name": "Kupang, Indonesia",
+    "lat": -10.1708,
+    "lon": 123.6069
+  },
+  {
+    "slug": "new-york-city",
+    "name": "New York City, United States",
+    "lat": 40.7143,
+    "lon": -74.006
+  },
+  {
+    "slug": "nouakchott",
+    "name": "Nouakchott, Mauritania",
+    "lat": 18.0858,
+    "lon": -15.9785
+  }
+]

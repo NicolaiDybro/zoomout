@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
+/* ---- Design tokens (semantic) ----------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #f6f7f9; /* app canvas */
+  --surface: #ffffff; /* cards / panels */
+  --surface-2: #eef1f5; /* insets, image backdrop */
+  --foreground: #0f172a; /* primary text */
+  --muted: #64748b; /* secondary text */
+  --border: #e2e8f0;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --clue: #f59e0b; /* amber — the satellite "clue" accent */
+  --answer: #2563eb; /* blue — the "answer"/guess accent */
+  --answer-on: #ffffff;
+  --success: #16a34a; /* solved */
+  --danger: #dc2626; /* out of guesses */
+
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px rgb(15 23 42 / 0.06);
+  --radius: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b1120;
+    --surface: #131c2e;
+    --surface-2: #1c2740;
+    --foreground: #e8edf5;
+    --muted: #94a3b8;
+    --border: #243049;
+
+    --clue: #fbbf24;
+    --answer: #3b82f6;
+    --success: #22c55e;
+    --danger: #f87171;
+
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px rgb(0 0 0 / 0.35);
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-clue: var(--clue);
+  --color-answer: var(--answer);
+  --color-answer-on: var(--answer-on);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-sans: var(--font-body), system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
